@@ -1,6 +1,6 @@
-namespace backend.Dtos.Player
+namespace backend.Dtos.Team
 {
-    public class AddPlayerDto
+    public class AddTeamDto
     {
         public string Login { get; set; } = "123";
     }

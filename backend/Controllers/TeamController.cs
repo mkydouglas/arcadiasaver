@@ -1,46 +1,47 @@
+
+
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
-using backend.Dtos.Player;
+using backend.Dtos.Team;
 using backend.Models;
-using backend.Services.PlayerService;
+using backend.Services.TeamService;
 using Microsoft.AspNetCore.Mvc;
 
 namespace backend.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    public class PlayerController : ControllerBase
+    public class TeamController : ControllerBase
     {
-        private readonly IPlayerService _playerService;
-        public PlayerController(IPlayerService playerService)
+        private readonly ITeamService _teamService;
+        public TeamController(ITeamService teamService)
         {
-            this._playerService = playerService;
+            this._teamService = teamService;
         }
 
 
         [HttpGet("GetAll")]
         public async Task<IActionResult> Get()
         {
-            return Ok(await _playerService.GetAllPlayers());
+            return Ok(await _teamService.GetAllTeams());
         }
 
         [HttpGet("{id}")]
         public async Task<IActionResult> GetSingle(int id)
         {
-            return Ok(_playerService.GetPlayerById(id));
+            return Ok(await _teamService.GetTeamById(id));
         }
 
         [HttpPost]
-        public async Task<IActionResult> AddPlayer(AddPlayerDto newPlayer)
+        public async Task<IActionResult> AddTeam(AddTeamDto newTeam)
         {
-            return Ok(_playerService.AddPlayer(newPlayer));
+            return Ok(await _teamService.AddTeam(newTeam));
         }
 
         [HttpDelete("{id}")]
         public async Task<IActionResult> Delete(int id)
         {
-            ServiceResponse<List<GetPlayerDto>> response = await _playerService.DeleteCharacter(id);
+            ServiceResponse<List<GetTeamDto>> response = await _teamService.DeleteTeam(id);
             if (response.Data == null)
             {
                 return NotFound(response);

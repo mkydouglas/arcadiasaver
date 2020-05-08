@@ -1,5 +1,5 @@
 using AutoMapper;
-using backend.Dtos.Player;
+using backend.Dtos.Team;
 using backend.Models;
 
 namespace backend
@@ -8,8 +8,8 @@ namespace backend
     {
         public AutoMapperProfile()
         {
-            CreateMap<Player, GetPlayerDto>();
-            CreateMap<AddPlayerDto, Player>();
+            CreateMap<Team, GetTeamDto>();
+            CreateMap<AddTeamDto, Team>();
         }
     }
 }

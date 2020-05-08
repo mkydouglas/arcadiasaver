@@ -8,15 +8,7 @@
       "sslPort": 44344
     }
   },
-  "profiles": {
-    "IIS Express": {
-      "commandName": "IISExpress",
-      "launchBrowser": true,
-      "launchUrl": "weatherforecast",
-      "environmentVariables": {
-        "ASPNETCORE_ENVIRONMENT": "Development"
-      }
-    },
+  "profiles": {    
     "backend": {
       "commandName": "Project",
       "launchBrowser": true,
