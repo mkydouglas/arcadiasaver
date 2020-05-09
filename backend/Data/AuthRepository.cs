@@ -1,14 +1,23 @@
+using System.Collections.Generic;
+using System.Security.Claims;
+using System.Text;
 using System.Threading.Tasks;
 using backend.Models;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
+using Microsoft.Extensions.Configuration;
+using System;
+using System.IdentityModel.Tokens.Jwt;
 
 namespace backend.Data
 {
     public class AuthRepository : IAuthRepository
     {
         private readonly DataContext _context;
-        public AuthRepository(DataContext context)
+        private readonly IConfiguration _configuration;
+        public AuthRepository(DataContext context, IConfiguration configuration)
         {
+            this._configuration = configuration;
             this._context = context;
         }
 
@@ -21,7 +30,7 @@ namespace backend.Data
                 response.Message = "Player already exists.";
                 return response;
             }
-            
+
             CreatePasswordHash(password, out byte[] passwordHash, out byte[] passwordSalt);
 
             user.PasswordHash = passwordHash;
@@ -36,20 +45,20 @@ namespace backend.Data
         public async Task<ServiceResponse<string>> Login(string login, string password)
         {
             ServiceResponse<string> response = new ServiceResponse<string>();
-            Player user = await _context.Players.FirstOrDefaultAsync(x => x.Login.ToLower().Equals(login.ToLower()));
-            if (user == null)
+            Player player = await _context.Players.FirstOrDefaultAsync(x => x.Login.ToLower().Equals(login.ToLower()));
+            if (player == null)
             {
                 response.Success = false;
                 response.Message = "Player not found.";
             }
-            else if (!VerifyPasswordHash(password, user.PasswordHash, user.PasswordSalt))
+            else if (!VerifyPasswordHash(password, player.PasswordHash, player.PasswordSalt))
             {
                 response.Success = false;
                 response.Message = "Wrong password.";
             }
             else
             {
-                response.Data = user.Id.ToString();
+                response.Data = response.Data = CreateToken(player);
             }
 
             return response;
@@ -87,6 +96,31 @@ namespace backend.Data
                 }
                 return true;
             }
+        }
+
+        private string CreateToken(Player player)
+        {
+            List<Claim> claims = new List<Claim>
+            {
+                new Claim(ClaimTypes.NameIdentifier, player.Id.ToString()),
+                new Claim(ClaimTypes.Name, player.Login)
+            };
+
+            SymmetricSecurityKey key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration.GetSection("AppSettings:Token").Value));
+
+            SigningCredentials creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha512Signature);
+
+            SecurityTokenDescriptor tokenDescriptor = new SecurityTokenDescriptor
+            {
+                Subject = new ClaimsIdentity(claims),
+                Expires = DateTime.Now.AddDays(1),
+                SigningCredentials = creds
+            };
+
+            JwtSecurityTokenHandler tokenHandler = new JwtSecurityTokenHandler();
+            SecurityToken token = tokenHandler.CreateToken(tokenDescriptor);
+
+            return tokenHandler.WriteToken(token);
         }
     }
 }

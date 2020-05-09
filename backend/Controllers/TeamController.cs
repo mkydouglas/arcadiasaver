@@ -1,14 +1,18 @@
 
 
 using System.Collections.Generic;
+using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
 using backend.Dtos.Team;
 using backend.Models;
 using backend.Services.TeamService;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace backend.Controllers
 {
+    [Authorize]
     [ApiController]
     [Route("[controller]")]
     public class TeamController : ControllerBase
@@ -18,7 +22,6 @@ namespace backend.Controllers
         {
             this._teamService = teamService;
         }
-
 
         [HttpGet("GetAll")]
         public async Task<IActionResult> Get()
@@ -45,6 +48,18 @@ namespace backend.Controllers
             if (response.Data == null)
             {
                 return NotFound(response);
+            }
+
+            return Ok(response);
+        }
+
+        [HttpPut]
+        public async Task<IActionResult> UpdateTeam(UpdateTeamDto updateTeam)
+        {
+            ServiceResponse<GetTeamDto> response = await _teamService.UpdateTeam(updateTeam);
+            if (response.Data == null)
+            {
+            return NotFound(response);
             }
 
             return Ok(response);

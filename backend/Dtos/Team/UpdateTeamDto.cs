@@ -1,8 +1,8 @@
 namespace backend.Dtos.Team
 {
-    public class GetTeamDto
+    public class UpdateTeamDto
     {
         public int Id { get; set; }
-        public string Login { get; set; } = "123";
+        public string Name { get; set; }
     }
 }
