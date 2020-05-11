@@ -1,10 +1,12 @@
 using System.Threading.Tasks;
 using backend.Dtos.Goal;
 using backend.Services.GoalService;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace backend.Controllers
 {
+    [Authorize]
     [ApiController]
     [Route("[controller]")]
     public class GoalController : ControllerBase

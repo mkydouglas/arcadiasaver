@@ -14,6 +14,7 @@ namespace backend.Data
         {
             modelBuilder.Entity<TeamGoal>().HasKey(tg => new { tg.TeamId, tg.GoalId});
             modelBuilder.Entity<PlayerCampaign>().HasKey(pc => new { pc.PlayerId, pc.CampaignId});
+            modelBuilder.Entity<PhaseGoal>().HasKey(pg => new { pg.PhaseId, pg.GoalId });
         }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder){
@@ -29,5 +30,6 @@ namespace backend.Data
         public DbSet<Campaign> Campaigns { get; set; }
         public DbSet<PlayerCampaign> PlayerCampaigns { get; set; }
         public DbSet<Phase> Phases { get; set; }
+        public DbSet<PhaseGoal> PhaseGoals { get; set; }
     }
 }

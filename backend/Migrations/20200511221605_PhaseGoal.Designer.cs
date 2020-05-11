@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using backend.Data;
 
 namespace backend.Migrations
 {
     [DbContext(typeof(DataContext))]
-    partial class DataContextModelSnapshot : ModelSnapshot
+    [Migration("20200511221605_PhaseGoal")]
+    partial class PhaseGoal
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -110,7 +112,7 @@ namespace backend.Migrations
                     b.ToTable("Phases");
                 });
 
-            modelBuilder.Entity("backend.Models.PhaseGoal", b =>
+            modelBuilder.Entity("backend.Models.PhaseGoals", b =>
                 {
                     b.Property<int>("PhaseId")
                         .HasColumnType("int");
@@ -210,7 +212,7 @@ namespace backend.Migrations
                         .HasForeignKey("CampaignId");
                 });
 
-            modelBuilder.Entity("backend.Models.PhaseGoal", b =>
+            modelBuilder.Entity("backend.Models.PhaseGoals", b =>
                 {
                     b.HasOne("backend.Models.Goal", "Goal")
                         .WithMany("PhaseGoals")

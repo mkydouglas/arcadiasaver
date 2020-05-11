@@ -1,10 +1,12 @@
 using System.Threading.Tasks;
 using backend.Dtos.PlayerCampaign;
 using backend.Services.PlayerCampaignService;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace backend.Controllers
 {
+    [Authorize]
     [ApiController]
     [Route("[controller]")]
     public class PlayerCampaignController : ControllerBase

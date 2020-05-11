@@ -38,9 +38,9 @@ namespace backend.Services.HeroService
         public async Task<ServiceResponse<List<GetHeroDto>>> GetAllHeros(int id)
         {
             ServiceResponse<List<GetHeroDto>> response = new ServiceResponse<List<GetHeroDto>>();
-            response.Data = await _context.Heros
-                .Where(h => h.Team.Id == id).Select(h => _mapper.Map<GetHeroDto>(h)).ToListAsync();
-
+            List<Hero> heros = await _context.Heros
+                .Where(h => h.Team.Id == id).ToListAsync();
+            response.Data = heros.Select(h => _mapper.Map<GetHeroDto>(h)).ToList();
             return response;
         }
 

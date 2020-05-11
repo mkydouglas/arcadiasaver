@@ -1,10 +1,12 @@
 using System.Threading.Tasks;
 using backend.Dtos.Hero;
 using backend.Services.HeroService;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace backend.Controllers
 {
+    [Authorize]
     [ApiController]
     [Route("[controller]")]
     public class HeroController : ControllerBase

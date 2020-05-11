@@ -1,10 +1,12 @@
 using System.Threading.Tasks;
 using backend.Dtos.Campaign;
 using backend.Services.CampaignService;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace backend.Controllers
 {
+    [Authorize]
     [ApiController]
     [Route("[controller]")]
     public class CampaignController : ControllerBase

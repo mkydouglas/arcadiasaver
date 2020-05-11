@@ -28,7 +28,9 @@ namespace backend
             CreateMap<Campaign, GetCampaignDto>()
                 .ForMember(dto => dto.Players, c => c.MapFrom(c => c.PlayerCampaigns.Select(pc => pc.Player)));
             CreateMap<AddPhaseDto, Phase>();
-            CreateMap<Phase, GetPhaseDto>();
+            CreateMap<Phase, GetPhaseDto>();            
+            CreateMap<Phase, GetPhaseDto>()
+                .ForMember(dto => dto.Goals, p => p.MapFrom(p => p.PhaseGoals.Select(pg => pg.Goal)));
         }
     }
 }

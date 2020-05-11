@@ -55,6 +55,7 @@ namespace backend.Services.PhaseService
             }
 
             List<Phase> phases = await _context.Phases
+                .Include(p => p.PhaseGoals).ThenInclude(pg => pg.Goal)
                 .Where(p => p.Campaign.Id == campaign.Id)
                 .ToListAsync();
 
