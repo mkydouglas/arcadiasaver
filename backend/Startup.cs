@@ -22,6 +22,8 @@ using backend.Services.TeamGoalService;
 using backend.Services.HeroService;
 using backend.Services.CampaignService;
 using backend.Services.PlayerCampaignService;
+using backend.Services.PhaseService;
+using backend.Services.GoalService;
 
 namespace backend
 {
@@ -46,6 +48,8 @@ namespace backend
             services.AddScoped<IHeroService, HeroService>();
             services.AddScoped<ICampaignService, CampaignService>();
             services.AddScoped<IPlayerCampaignService, PlayerCampaignService>();
+            services.AddScoped<IPhaseService, PhaseService>();
+            services.AddScoped<IGoalService, GoalService>();
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
                 .AddJwtBearer(options =>

@@ -28,5 +28,6 @@ namespace backend.Data
         public DbSet<Hero> Heros { get; set; }
         public DbSet<Campaign> Campaigns { get; set; }
         public DbSet<PlayerCampaign> PlayerCampaigns { get; set; }
+        public DbSet<Phase> Phases { get; set; }
     }
 }

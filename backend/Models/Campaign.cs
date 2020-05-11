@@ -9,5 +9,6 @@ namespace backend.Models
         public string Name { get; set; }
         public int NumberOfPlayers { get; set; }
         public List<PlayerCampaign> PlayerCampaigns { get; set; }
+        public List<Phase> Phases { get; set; }
     }
 }
