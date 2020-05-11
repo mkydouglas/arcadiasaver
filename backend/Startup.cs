@@ -18,6 +18,10 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.AspNetCore.Http;
+using backend.Services.TeamGoalService;
+using backend.Services.HeroService;
+using backend.Services.CampaignService;
+using backend.Services.PlayerCampaignService;
 
 namespace backend
 {
@@ -38,6 +42,10 @@ namespace backend
             services.AddAutoMapper(typeof(Startup));
             services.AddScoped<ITeamService, TeamService>();
             services.AddScoped<IAuthRepository, AuthRepository>();
+            services.AddScoped<ITeamGoalService, TeamGoalService>();
+            services.AddScoped<IHeroService, HeroService>();
+            services.AddScoped<ICampaignService, CampaignService>();
+            services.AddScoped<IPlayerCampaignService, PlayerCampaignService>();
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
                 .AddJwtBearer(options =>

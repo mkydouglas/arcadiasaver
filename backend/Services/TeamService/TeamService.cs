@@ -42,7 +42,7 @@ namespace backend.Services.TeamService
         {
             ServiceResponse<List<GetTeamDto>> serviceResponse = new ServiceResponse<List<GetTeamDto>>();
 
-            List<Team> dbTeams = await _context.Teams.Where(t => t.Player.Id == GetUserId()).ToListAsync();
+            List<Team> dbTeams = await _context.Teams.Include(t => t.TeamGoals).ThenInclude(tg => tg.Goal).Where(t => t.Player.Id == GetUserId()).ToListAsync();
             serviceResponse.Data = dbTeams.Select(p => _mapper.Map<GetTeamDto>(p)).ToList();
             return serviceResponse;
         }

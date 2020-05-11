@@ -9,5 +9,6 @@ namespace backend.Models
         public byte[] PasswordHash { get; set; }
         public byte[] PasswordSalt { get; set; }
         public List<Team> Teams { get; set; }
+        public List<PlayerCampaign> PlayerCampaigns { get; set; }
     }
 }
