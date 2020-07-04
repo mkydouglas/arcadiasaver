@@ -65,6 +65,7 @@ namespace backend
                         ValidateAudience = false
                     };
                 });
+            services.AddCors();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -76,6 +77,10 @@ namespace backend
             }
 
             app.UseHttpsRedirection();
+
+            app.UseCors(
+                options => options.SetIsOriginAllowed(x => _ = true).AllowAnyMethod().AllowAnyHeader().AllowCredentials()
+            );
 
             app.UseRouting();
 

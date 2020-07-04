@@ -1,0 +1,82 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;500;700&display=swap');
+
+body {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+}
+
+h1 {
+    font-size: 2.5rem;
+}
+
+input {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    font-size: 100%;
+}
+
+input::-webkit-input-placeholder, form .botao {
+    color: #000;
+    
+}
+
+input:focus, select:focus {
+    outline: none;
+}
+
+select option {
+    color: black;
+ }
+ select:not(:checked) {
+    color: gray;
+ }
+
+.main {
+    text-align: center;    
+    height: 100vh;
+}
+
+.titulo {
+    color: #fc6962;
+    padding: 30px 0 20px;
+    font-weight: 500;
+    text-shadow: 0px 4px 4px #0000006b;
+}
+
+.subtitulo {
+    color: #49D1DB;
+    width: 58%;
+    margin: 0 auto 30px;
+    line-height: 20px;
+    text-shadow: 0px 4px 4px #0000006b;
+    font-size: 0.8rem;
+}
+
+.botoes {
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    align-items: center;
+}
+
+.botao{
+    width: 60%;
+    text-align: left;
+    padding: 10px;
+    margin: 10px;
+    border: 1px solid #fc6962;
+    border-radius: 5px;
+    color: #fc6962;
+    background: transparent;
+    box-shadow: 0 2px 4px #0000006b;
+    z-index: 1;
+}
+
+.icon {
+    font-size: 2rem;
+    color: #fc6962;
+}
+
+.logo {
+    margin: 100px 0;
+}

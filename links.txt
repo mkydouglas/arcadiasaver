@@ -1,0 +1,4 @@
+http://www.macoratti.net/18/05/aspcore_cors1.htm
+https://docs.microsoft.com/pt-br/aspnet/core/security/cors?view=aspnetcore-3.1#dc
+https://dev.to/_patrickgod/object-relational-mapping-code-first-migration-with-entity-framework-core-nno
+https://medium.com/xp-inc/dica-r%C3%A1pida-habilitando-cors-em-suas-api-s-em-net-core-1284f063418
