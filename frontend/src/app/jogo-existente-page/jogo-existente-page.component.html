@@ -1,0 +1,13 @@
+<section class="main">
+    <header>
+        <h1 class="titulo">Arcadia Saver</h1>
+        <h2 class="subtitulo">O MELHOR CAMINHO PARA SALVAR SUA CAMPANHA</h2>
+    </header>
+
+    <form [formGroup]="form" class="botoes">
+        <input formControlName="campanhaid" type="text" placeholder="ID da Campanha" class="botao">
+        <mat-icon *ngIf="!form.invalid" class="icon" (click)="submit()">done</mat-icon>
+        <span *ngIf="temErro">{{erro}}</span>
+    </form>
+</section>
+<ngx-spinner bdColor = "rgba(0, 0, 0, 0.8)" size = "medium" color = "#fff" type = "square-jelly-box" [fullScreen] = "true"><p style="color: white" > Loading... </p></ngx-spinner>

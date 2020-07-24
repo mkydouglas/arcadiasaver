@@ -17,10 +17,9 @@ namespace backend.Controllers
             this._service = service;
         }
 
-        [HttpPost]
+        [HttpPost("{teamId}")]
         public async Task<IActionResult> AddHero(
-            AddHeroDto newHero,
-            [FromHeader]int teamId)
+            AddHeroDto newHero, int teamId)
         {
             return Ok(await _service.AddHero(newHero, teamId));
         }

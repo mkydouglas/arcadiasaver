@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using AutoMapper;
 using backend.Data;
 using backend.Dtos.Campaign;
+using backend.Dtos.Player;
 using backend.Dtos.PlayerCampaign;
 using backend.Models;
 using Microsoft.AspNetCore.Http;
@@ -35,7 +36,7 @@ namespace backend.Services.PlayerCampaignService
                 if (player == null)
                 {
                     response.Success = false;
-                    response.Message = "Player not found.";
+                    response.Message = "Jogador não encontrado.";
                     return response;
                 }
 
@@ -45,7 +46,23 @@ namespace backend.Services.PlayerCampaignService
                 if (campaign == null)
                 {
                     response.Success = false;
-                    response.Message = "Campaign not found.";
+                    response.Message = "Campanha não encontrada.";
+                    return response;
+                }
+
+                GetCampaignDto dto = _mapper.Map<GetCampaignDto>(campaign);
+                GetPlayerDto pDto = dto.Players.FirstOrDefault(p => p.Id == player.Id);
+
+                if (pDto != null) 
+                {
+                    response.Data = _mapper.Map<GetCampaignDto>(campaign);
+                    return response;
+                }
+
+                if (campaign.PlayerCampaigns.Count >= campaign.NumberOfPlayers)
+                {
+                    response.Success = false;
+                    response.Message = "Limite de Jogadores atigindo.";
                     return response;
                 }
 

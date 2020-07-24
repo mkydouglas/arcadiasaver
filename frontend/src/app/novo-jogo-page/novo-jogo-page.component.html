@@ -4,17 +4,31 @@
     </header>
 
     <section>
-        <div class="botoes">
-            <label for="campanha">Selecione a Campanha</label>
+        <form [formGroup]="form" class="botoes" (ngSubmit)="onSubmit()">
+            <div class="botoes">
+                <label for="campanha">Selecione a Campanha</label>
+                <select name="campanha" id="campanha" formControlName="fcampanha" class="botao select">
+                    <option *ngFor="let campanha of campanhas" [ngValue]="campanha.name">
+                        {{ campanha.name }}
+                    </option>
+                </select>
+            </div>
+        
+            <div class="botoes">
+                <label for="qtdJog">Quantidade de Jogadores</label>
 
-            <select name="campanha" id="campanha" class="botao">
-                <option value="ArcadiaQuest" selected>Arcadia Quest</option>
-                <option value="ArcadiaQuestInferno">Arcadia Quest: Inferno</option>
-                <option value="BTG">Beyond the grave</option>
-                <option value="Pets">Pets</option>
-                <option value="Riders">Riders</option>
-            </select>
-        </div>
+                <select name="qtdJog" id="qtdJog" formControlName="fqtdJog" class="botao select">
+                    <option [ngValue]="2">2</option>
+                    <option [ngValue]="3">3</option>
+                    <option [ngValue]="4">4</option>
+                </select>
+            </div>
+            <div>
+                <button type="submit"><mat-icon class="icon">done</mat-icon></button>
+            </div>
+        </form>
+        
         <img src="../../assets/images/AS 1.png" alt="" class="logo">
     </section>
 </section>
+<ngx-spinner bdColor = "rgba(0, 0, 0, 0.8)" size = "medium" color = "#fff" type = "square-jelly-box" [fullScreen] = "true"><p style="color: white" > Loading... </p></ngx-spinner>

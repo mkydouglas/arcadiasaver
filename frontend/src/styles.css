@@ -9,6 +9,12 @@ h1 {
     font-size: 2.5rem;
 }
 
+button {
+    background: transparent;
+    border: none;
+    outline: none;
+}
+
 input {
     font-family: 'Roboto', sans-serif;
     font-weight: 500;
@@ -31,9 +37,14 @@ select option {
     color: gray;
  }
 
+mat-icon {
+    cursor: pointer;
+}
+
 .main {
     text-align: center;    
     height: 100vh;
+    position: relative;
 }
 
 .titulo {
@@ -52,6 +63,10 @@ select option {
     font-size: 0.8rem;
 }
 
+.header {
+    padding: 20px 0 20px;
+}
+
 .botoes {
     display: flex;
     flex-direction: column;
@@ -60,7 +75,7 @@ select option {
 }
 
 .botao{
-    width: 60%;
+    width: 70%;
     text-align: left;
     padding: 10px;
     margin: 10px;
@@ -72,11 +87,96 @@ select option {
     z-index: 1;
 }
 
+.n-guilda {
+    width: 80%;
+    text-align: center;
+}
+
+.n-herois {
+    box-shadow: 0 0 5px #38D0DB;
+    padding: 10px 0;
+    margin: 0 0 20px;
+}
+
+.n-heroi {
+    width: 60%;
+    text-align: center;
+}
+
+.n-cartas {
+    width: 68%;
+    margin: 0 auto;
+}
+
+.n-carta {
+    width: 40%;
+    text-align: center;
+}
+
+.n-maldicao {
+    width: 45%;
+    text-align: center;
+}
+
+thead td {
+    font-size: 14px;
+}
+
+td {    
+    color: #fc6962;
+}
+
+.th-td {
+    border: 1px solid #38D0DB;
+    padding: 5px;
+}
+
+.th {
+    border-right: none;
+    border-left: none;
+}
+
+.th-td-r {
+    border-right: none;
+}
+
+.th-td-l {
+    border-left: none;
+}
+
+.tb-td {
+    border: 1px solid #38D0DB;
+    padding: 10px 5px;
+}
+
+.total {
+    padding: 15px 0;
+    font-weight: 700;
+}
+
 .icon {
     font-size: 2rem;
     color: #fc6962;
 }
 
+.icon.i-rodape {
+    color: #fff;
+}
+
 .logo {
     margin: 100px 0;
+}
+
+.select {
+    width: 80%;
+}
+
+.footer {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;    
+    background: #38D0DB;
+    padding: 10px 0;
+    position: sticky;
+    bottom: 0;
 }

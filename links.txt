@@ -2,3 +2,4 @@ http://www.macoratti.net/18/05/aspcore_cors1.htm
 https://docs.microsoft.com/pt-br/aspnet/core/security/cors?view=aspnetcore-3.1#dc
 https://dev.to/_patrickgod/object-relational-mapping-code-first-migration-with-entity-framework-core-nno
 https://medium.com/xp-inc/dica-r%C3%A1pida-habilitando-cors-em-suas-api-s-em-net-core-1284f063418
+https://www.codereadability.com/how-to-check-for-undefined-in-javascript/#:~:text=void(anything)%20will%20always%20evaluate,%22)%20%7B...%7D 24/07

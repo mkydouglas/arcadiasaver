@@ -6,6 +6,7 @@ namespace backend.Services.CampaignService
 {
     public interface ICampaignService
     {
-        Task<ServiceResponse<GetCampaignDto>> AddCampaign(AddCampaignDto newCampaign);
+        Task<ServiceResponse<GetCampaignDto>> AddCampaign(AddCampaignDto newCampaign, int playerId);
+        Task<ServiceResponse<GetCampaignDto>> GetCampaign(string campaignId);
     }
 }

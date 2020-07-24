@@ -27,7 +27,7 @@ namespace backend.Data
             if (await PlayerExists(user.Login))
             {
                 response.Success = false;
-                response.Message = "Player already exists.";
+                response.Message = "Nick já existe.";
                 return response;
             }
 
@@ -39,6 +39,7 @@ namespace backend.Data
             await _context.Players.AddAsync(user);
             await _context.SaveChangesAsync();
             response.Data = user.Id;
+            response.Message = "Jogador Cadastrado!";
             return response;
         }
 
@@ -49,17 +50,20 @@ namespace backend.Data
             if (player == null)
             {
                 response.Success = false;
-                response.Message = "Player not found.";
+                response.Message = "Jogador não encontrado.";
             }
             else if (!VerifyPasswordHash(password, player.PasswordHash, player.PasswordSalt))
             {
                 response.Success = false;
-                response.Message = "Wrong password.";
+                response.Message = "Senha incorreta.";
             }
             else
             {
                 response.Data = response.Data = CreateToken(player);
+                response.Message = ""+player.Id;
             }
+
+            
 
             return response;
         }

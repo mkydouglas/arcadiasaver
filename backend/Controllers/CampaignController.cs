@@ -1,3 +1,4 @@
+using System;
 using System.Threading.Tasks;
 using backend.Dtos.Campaign;
 using backend.Services.CampaignService;
@@ -18,10 +19,16 @@ namespace backend.Controllers
 
         }
 
-        [HttpPost]
-        public async Task<IActionResult> AddCampaign(AddCampaignDto newCampaign)
+        [HttpPost()]
+        public async Task<IActionResult> AddCampaign(AddCampaignDto newCampaign, [FromQuery]int playerId)
         {
-            return Ok(await _service.AddCampaign(newCampaign));
+            return Ok(await _service.AddCampaign(newCampaign, playerId));
+        }
+
+        [HttpGet()]
+        public async Task<IActionResult> GetCampaign([FromQuery]string campaignId)
+        {
+            return Ok(await _service.GetCampaign(campaignId));
         }
     }
 }

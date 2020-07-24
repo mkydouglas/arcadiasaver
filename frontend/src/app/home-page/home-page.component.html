@@ -1,0 +1,63 @@
+<section class="main">
+    <header>
+        <h1 class="titulo">{{campanha.data.name}}</h1>
+        <h2>ID Campanha:{{campanha.data.campaignId}}</h2>
+    </header>
+
+    <section>
+        <form [formGroup]="form" class="botoes">
+            <div class="botoes select">
+                <input type="text" placeholder="Fase" class="botao">
+            </div>
+        
+            <div class="botoes select">
+                <select formControlName="vencedor" class="botao">
+                    <option value="" hidden>Vencedor</option>
+                    <option *ngFor="let np of nps" [ngValue]="np">
+                        {{np}}
+                    </option>
+                </select>
+            </div>
+        
+            <div class="botoes select">
+                <select formControlName="menosMortes" class="botao">
+                    <option value="" disabled selected hidden>Menos Mortes</option>
+                    <option *ngFor="let np of nps" [ngValue]="np">
+                        {{np}}
+                    </option>
+                </select>
+            </div>
+        
+            <div class="botoes select">
+                <select formControlName="maisMoedas" class="botao">
+                    <option value="" disabled selected hidden>Mais Moedas</option>
+                    <option *ngFor="let np of nps" [ngValue]="np">
+                        {{np}}
+                    </option>
+                </select>
+            </div>
+        
+            <div class="botoes select">
+                <select formControlName="ganhouRecompensa" class="botao">
+                    <option value="" disabled selected hidden>Ganhou Recompensa</option>
+                    <option *ngFor="let np of nps" [ngValue]="np">
+                        {{np}}
+                    </option>
+                </select>
+            </div>
+        
+            <div class="botoes select">
+                <select formControlName="ganhouTitulo" class="botao">
+                    <option value="" disabled selected hidden>Ganhou Título</option>
+                    <option *ngFor="let np of nps" [ngValue]="np">
+                        {{np}}
+                    </option>
+                </select>
+            </div>
+            <div>
+                <button type="submit"><mat-icon class="icon">done</mat-icon></button>
+            </div>   
+        </form>     
+    </section>
+</section>
+<app-rodape class="footer"></app-rodape>

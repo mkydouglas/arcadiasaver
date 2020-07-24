@@ -51,7 +51,7 @@ namespace backend.Services.TeamService
         {
             ServiceResponse<GetTeamDto> serviceResponse = new ServiceResponse<GetTeamDto>();
 
-            Team dbTeam = await _context.Teams.FirstOrDefaultAsync(c => c.Id == id && c.Player.Id == GetUserId());
+            Team dbTeam = await _context.Teams.Include(t => t.Heros).FirstOrDefaultAsync(c => c.Id == id && c.Player.Id == GetUserId());
             serviceResponse.Data = _mapper.Map<GetTeamDto>(dbTeam);
             return serviceResponse;
         }

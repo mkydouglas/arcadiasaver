@@ -1,0 +1,43 @@
+<section class="main">
+    <form [formGroup]="form">
+        <header class="header">
+            <input formControlName="nGuilda" type="text" placeholder="Nome da Guilda" class="botao n-guilda">
+        </header>
+
+        <section>
+            <article class="n-herois">
+                <input formControlName="nHeroi1" type="text" placeholder="Nome do Herói" class="botao n-heroi">
+                <div class="n-cartas">
+                    <input formControlName="carta1Heroi1" type="text" placeholder="Carta 1" class="botao n-carta">
+                    <input formControlName="carta2Heroi1" type="text" placeholder="Carta 2" class="botao n-carta">
+                    <input formControlName="carta3Heroi1" type="text" placeholder="Carta 3" class="botao n-carta">
+                    <input formControlName="carta4Heroi1" type="text" placeholder="Carta 4" class="botao n-carta">
+                </div>
+                <input formControlName="mMortalHeroi1" type="text" placeholder="Maldição Mortal" class="botao n-maldicao">
+            </article>
+            <article class="n-herois">
+                <input formControlName="nHeroi2" type="text" placeholder="Nome do Herói" class="botao n-heroi">
+                <div class="n-cartas">
+                    <input formControlName="carta1Heroi2" type="text" placeholder="Carta 1" class="botao n-carta">
+                    <input formControlName="carta2Heroi2" type="text" placeholder="Carta 2" class="botao n-carta">
+                    <input formControlName="carta3Heroi2" type="text" placeholder="Carta 3" class="botao n-carta">
+                    <input formControlName="carta4Heroi2" type="text" placeholder="Carta 4" class="botao n-carta">
+                </div>
+                <input formControlName="mMortalHeroi2" type="text" placeholder="Maldição Mortal" class="botao n-maldicao">
+            </article>
+            <article class="n-herois">
+                <input formControlName="nHeroi3" type="text" placeholder="Nome do Herói" class="botao n-heroi">
+                <div class="n-cartas">
+                    <input formControlName="carta1Heroi3" type="text" placeholder="Carta 1" class="botao n-carta">
+                    <input formControlName="carta2Heroi3" type="text" placeholder="Carta 2" class="botao n-carta">
+                    <input formControlName="carta3Heroi3" type="text" placeholder="Carta 3" class="botao n-carta">
+                    <input formControlName="carta4Heroi3" type="text" placeholder="Carta 4" class="botao n-carta">
+                </div>
+                <input formControlName="mMortalHeroi3" type="text" placeholder="Maldição Mortal" class="botao n-maldicao">
+            </article>
+        </section>
+        <mat-icon class="icon" (click)="submit()">done</mat-icon>
+    </form>
+    <app-rodape class="footer"></app-rodape>
+</section>
+<ngx-spinner bdColor = "rgba(0, 0, 0, 0.8)" size = "medium" color = "#fff" type = "square-jelly-box" [fullScreen] = "true"><p style="color: white" > Loading... </p></ngx-spinner>

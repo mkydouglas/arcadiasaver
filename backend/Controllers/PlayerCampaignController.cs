@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace backend.Controllers
 {
-    [Authorize]
+    
     [ApiController]
     [Route("[controller]")]
     public class PlayerCampaignController : ControllerBase

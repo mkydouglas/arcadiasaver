@@ -12,6 +12,11 @@ import { TelaPrincipalPageComponent } from './tela-principal-page/tela-principal
 import { NovoJogoPageComponent } from './novo-jogo-page/novo-jogo-page.component';
 import { TelaLoginComponent } from './tela-login/tela-login.component';
 import { HttpClientModule } from '@angular/common/http';
+import { HomePageComponent } from './home-page/home-page.component';
+import { MochilaPageComponent } from './mochila-page/mochila-page.component';
+import { RankPageComponent } from './rank-page/rank-page.component';
+import { JogoExistentePageComponent } from './jogo-existente-page/jogo-existente-page.component';
+import { RodapeComponent } from './rodape/rodape.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +24,12 @@ import { HttpClientModule } from '@angular/common/http';
     TelaInicialPageComponent,
     TelaPrincipalPageComponent,
     NovoJogoPageComponent,
-    TelaLoginComponent
+    TelaLoginComponent,
+    HomePageComponent,
+    MochilaPageComponent,
+    RankPageComponent,
+    JogoExistentePageComponent,
+    RodapeComponent
   ],
   imports: [
     BrowserModule,
